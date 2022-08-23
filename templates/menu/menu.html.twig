@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background:#0C0920; font-family: 'Baloo Bhaina 2', cursive;">
+  <div class="container-fluid fs-5">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand col-sm-2 col-lg-1 mx-2" 
+    href='
+    {% if app.user %}
+      {{ path('app_is_connect') }}
+    {% else %}
+      {{ path('app_home') }}
+    {% endif %}'
+    style="font-size:20px; color:#DC9A7D">Sandrine<br/> COUPART</a>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mx-auto">
+      {% if not app.user %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_qui_suis_je')}}">Qui suis-je ?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_pour_qui_pour_quoi')}}">Pour qui ? Pour quoi ?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_prestations')}}">Prestations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_contact')}}">Contact</a>
+        </li>
+      {% endif %}
+
+      {% if app.user %}
+          {% if app.user.username == "SandrineAdmin09**" %}
+            <li class="nav-item">
+              <a href="{{path('app_register')}}" class="nav-link">Créer un patient</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{path('app_voir_touts_les_recettes')}}" class="nav-link">Voir toutes les recettes</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{path('app_add_recettes')}}" class="nav-link">Ajouter une recette</a>
+            </li>
+          {% endif %}
+      {% endif %}
+
+      </ul>
+    </div>
+
+    {% if app.user %}
+      <div>
+      {% if app.user.username == "SandrineAdmin09**" %}
+        <p class="text-success" style="font-size:15px;">Bienvenue Sandrine Coupart</p>
+      {% else %}
+        <p class="text-success" style="font-size:15px;">Bienvenue {{app.user.username}}</p>
+      {% endif %}
+        <a href="{{path('app_logout')}}" class="btn btn-danger d-block mx-auto" style="font-size:15px;">Se déconnecter</a>
+      </div>
+    {% else %}
+      <a href="{{path('app_login')}}" class="btn btn-success" style="font-size:15px;">Se connecter</a>
+    {% endif %}
+  
+  </div>
+</nav>

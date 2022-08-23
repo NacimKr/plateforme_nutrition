@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sandrine COUPART - Qui suis-je ?{% endblock %}
+
+{% block body %}
+<div class="position-relative">
+            <img src='
+        {% if app.user %}
+            {{ asset('img/espace_connecter_header.jpg') }}
+        {% else %}
+            {{ asset('img/header.jpg') }}
+        {% endif %}
+        ' style="width:100%; height:350px; object-fit:cover; opacity:.6" alt="">
+    <div class="position-absolute top-50 start-50 text-center fs-1 translate-middle fw-bold" style="color:#0C0920">
+        <span class="display-2 fw-bold" style="font-family: 'Baloo Bhaina 2', cursive;">À propos</span>
+    </div>
+</div>
+
+        <img src="{{asset('img/267-600x350.jpg')}}" class="img-thumbnail img-fluid" alt='une image de dame ayant mal au ventre'>
+    <div class="d-inline-block" style="font-family: 'Noto Sans', sans-serif;">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent 
+        quis consectetur massa. Vestibulum condimentum velit nec euismod scelerisque. Sed interdum sagittis purus non varius. Nulla posuere laoreet est, a facilisis dolor molestie vulputate. Mauris nibh mauris, vulputate eget hendrerit vel, ultrices at purus. Vestibulum eu eleifend massa. Nam dolor diam, vulputate sit amet congue ac, molestie sit amet sapien. Donec hendrerit hendrerit convallis. Etiam vel fringilla felis.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent 
+        quis consectetur massa. Vestibulum condimentum velit nec euismod scelerisque. Sed interdum sagittis purus non varius. Nulla posuere laoreet est, a facilisis dolor molestie vulputate. Mauris nibh mauris, vulputate eget hendrerit vel, ultrices at purus. Vestibulum eu eleifend massa. Nam dolor diam, vulputate sit amet congue ac, molestie sit amet sapien. Donec hendrerit hendrerit convallis. Etiam vel fringilla felis.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent 
+        quis consectetur massa. Vestibulum condimentum velit nec euismod scelerisque. Sed interdum sagittis purus non varius. Nulla posuere laoreet est, a facilisis dolor molestie vulputate. Mauris nibh mauris, vulputate eget hendrerit vel, ultrices at purus. Vestibulum eu eleifend massa. Nam dolor diam, vulputate sit amet congue ac, molestie sit amet sapien. Donec hendrerit hendrerit convallis. Etiam vel fringilla felis.
+        </p>
+    </div>
+    <a class="btn text-light my-3 mx-auto d-block w-25 fs-5" style="background:#609A7D">Me contacter</a>
+
+{% endblock %}

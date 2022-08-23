@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sandrine COUPART - Créer votre patient{% endblock %}
+
+{% block body %}
+    <div class="position-relative">
+                <img src='
+        {% if app.user %}
+            {{ asset('img/espace_connecter_header.jpg') }}
+        {% else %}
+            {{ asset('img/header.jpg') }}
+        {% endif %}
+        ' style="width:100%; height:350px; object-fit:cover; opacity:.6" alt="">
+        <div class="position-absolute top-50 start-50 text-center fs-1 translate-middle fw-bold" style="color:#0C0920">
+            <span class="display-2 fw-bold" style="font-family: 'Baloo Bhaina 2', cursive;">Créer votre patient</span> <br>
+        </div>
+    </div>
+
+    <div class="container">
+    {% for message in app.flashes('notice_patient') %}
+        <div class="flash-notice">
+            <div class="alert alert-dismissible alert-success">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>{{ message }}</strong>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{# {{dump(users)}} #}
+
+    <div class="container w-50 my-5 bg-light rounded p-5 col-lg-4 col-md-8 col-sm-10">
+        {{ form_start(registrationForm) }}
+        
+            {{ form_row(registrationForm.username, {
+                label:"Son nom d'utilisateur", 'attr' : {'class' : "form-control mb-3"}
+            }) }}
+
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Son Mot de passe', 'attr' : {'class' : "form-control"}
+            }) }}
+
+            <button type="submit" class="btn btn-success mt-4 mx-auto d-block">Register</button>
+
+        {{ form_end(registrationForm) }}
+    </div>
+{% endblock %}

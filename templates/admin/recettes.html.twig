@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+    <div class="position-relative">
+        <img src='
+        {% if app.user %}
+            {{ asset('img/espace_connecter_header.jpg') }}
+        {% else %}
+            {{ asset('img/header.jpg') }}
+        {% endif %}
+        ' style="width:100%; height:350px; object-fit:cover; opacity:.5" alt="">
+        <div class="position-absolute top-50 start-50 text-center fs-1 translate-middle fw-bold" style="color:#0C0920">
+            <span class="display-2 fw-bold" style="font-family: 'Baloo Bhaina 2', cursive;">Ajouter votre recette</span> <br>
+        </div>
+    
+    </div>
+    <div class="container w-50 mt-5">
+        {{form_start(formRecettes)}}
+            {{form_row(formRecettes.titre,{'attr' : {'placeholder' : "Titre de la recette", 'class' : "bg-light col-sm-5 col-lg-6 col-md-5"}})}}
+            {{form_row(formRecettes.temps_de_preparation,{'attr' : {'placeholder' : "Son temps de préparation", 'class' : "bg-light col-sm-5 col-lg-6 col-md-5"}})}}
+            {{form_row(formRecettes.temps_de_repos,{'attr' : {'placeholder' : "Son temps de repos", 'class' : "bg-light col-sm-5 col-lg-6 col-md-5"}})}}
+            {{form_row(formRecettes.temps_de_cuisson,{'attr' : {'placeholder' : "Son temps de cuisson", 'class' : "bg-light col-sm-5 col-lg-6 col-md-5"}})}}
+            {{form_row(formRecettes.ingredients,{'attr' : {'placeholder' : "Indiquez les proportions", 'class' : "bg-light col-sm-5 col-lg-6 col-md-5"}})}}
+            {{form_row(formRecettes.etapes_de_preparation,{'attr' : {'placeholder' : "Les étapes de préaparation de la recette", 'class' : "bg-light"}})}}
+            {{form_row(formRecettes.allergene,{'attr' : {'placeholder' : "Lactose, Gluten etc.", 'class' : "bg-light col-sm-5 col-lg-6 col-md-5"}})}}
+            {{form_row(formRecettes.type,{'attr' : {'placeholder' : "Le type de la recette, Dessert, Plat etc.", 'class' : "bg-light col-sm-5 col-lg-6 col-md-5"}})}}
+            <input type="submit" class="btn btn-success" value="Ajouter la recette">
+        {{form_end(formRecettes)}}
+    </div>
+{% endblock %}
