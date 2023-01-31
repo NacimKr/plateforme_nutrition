@@ -1,6 +1,6 @@
 # Sandrine COUPART
 
-## Cloner le projet avec la commande
+## Cloner le projet avec la commande git clone https://github.com/NacimKr/plateforme_nutrition.git
 
 Puis entrer la commande composer install ou composer i
 
